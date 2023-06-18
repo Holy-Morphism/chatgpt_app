@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'ChatGPT',
-        debugShowCheckedModeBanner: false,
         theme: ThemeData(
+            primaryTextTheme: Typography.whiteCupertino,
             primarySwatch: Colors.green,
             useMaterial3: true,
             scaffoldBackgroundColor: scaffoldBackgroundColor,

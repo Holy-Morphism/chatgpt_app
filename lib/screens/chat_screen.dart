@@ -1,6 +1,11 @@
+import 'package:chatgptapp/constants/constants.dart';
+import 'package:chatgptapp/services/assets_manager.dart';
+import 'package:chatgptapp/widgets/chat.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+
+import '../services/services.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -27,23 +32,34 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('ChatGPT'), centerTitle: true, actions: [
-        IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.more_vert_outlined,
-              color: Colors.white,
-            ))
-      ]),
+      appBar: AppBar(
+          title: Image.asset(
+            AssetManager.openailogo,
+            height: 30,
+          ),
+          centerTitle: true,
+          actions: [
+            IconButton(
+                onPressed: () async {
+                  await Services.bottomSheet(context);
+                },
+                icon: const Icon(
+                  Icons.more_vert_outlined,
+                  color: Colors.white,
+                ))
+          ]),
       body: SafeArea(
         child: Column(
           children: [
             Flexible(
               child: ListView.builder(
                 itemBuilder: ((context, index) {
-                  return Text('Heloo');
+                  return Chat(
+                    messege: chatData[index]['answer'] as String,
+                    question: chatData[index]['question'] as String,
+                  );
                 }),
-                itemCount: 6,
+                itemCount: chatData.length,
               ),
             ),
             if (_istyping) ...[
@@ -52,7 +68,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 size: 18,
               ),
               Padding(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Row(
                   children: [
                     Expanded(
