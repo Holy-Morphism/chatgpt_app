@@ -1,29 +1,28 @@
-import 'package:chatgptapp/widgets/txt_style.dart';
 import 'package:flutter/material.dart';
 
 const Color scaffoldBackgroundColor = Color(0xFF343541);
 const Color cardColor = Color(0xFF444654);
 
-List<String> models = [
-  'Model 1',
-  'Model 2',
-  'Model 3',
-  'Model 4',
-  'Model 5',
-  'Model 6',
-];
+// List<String> models = [
+//   'Model 1',
+//   'Model 2',
+//   'Model 3',
+//   'Model 4',
+//   'Model 5',
+//   'Model 6',
+// ];
 
-List<DropdownMenuItem<String>> get getModelItems {
-  List<DropdownMenuItem<String>> modelItems =
-      List<DropdownMenuItem<String>>.generate(
-    models.length,
-    (index) => DropdownMenuItem<String>(
-      value: models[index],
-      child: TxtStyle(label: models[index]),
-    ),
-  );
-  return modelItems;
-}
+// List<DropdownMenuItem<String>> get getModelItems {
+//   List<DropdownMenuItem<String>> modelItems =
+//       List<DropdownMenuItem<String>>.generate(
+//     models.length,
+//     (index) => DropdownMenuItem<String>(
+//       value: models[index],
+//       child: TxtStyle(label: models[index]),
+//     ),
+//   );
+//   return modelItems;
+// }
 
 const List<Map<String, String>> chatData = [
   {'question': 'What is your name?', 'answer': 'My name is ChatBot.'},

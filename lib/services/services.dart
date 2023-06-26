@@ -1,8 +1,7 @@
-import 'package:chatgptapp/widgets/drop_down.dart';
-import 'package:chatgptapp/widgets/txt_style.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/constants.dart';
+import '../widgets/drop_down.dart';
 
 class Services {
   static Future<void> bottomSheet(BuildContext context) async {
@@ -15,7 +14,7 @@ class Services {
             padding: EdgeInsets.all(10),
             child: Row(
               children: [
-                Flexible(child: TxtStyle(label: 'Chosen Model : ')),
+                Flexible(child: Text('Chosen Model : ')),
                 Flexible(
                   flex: 2,
                   child: DropDown(),
